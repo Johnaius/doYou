@@ -1,56 +1,91 @@
+<head>   <link rel="stylesheet" href="/css/test.css" /></head>
 <%- include('partials/logged-in-header') -%>
-<div class="container">
-  <div class="row justify-content-center mt-5">
-    <div class="col-6">
-      <h2><%= post.title %></h2>
-      <img class="img-fluid" src="<%= post.image%>" />
-      <div class="row justify-content-between">
-        <form
-          class="col-1"
-          action="/post/likePost/<%= post.id %>?_method=PUT"
-          method="POST"
-        >
-          <button class="btn btn-primary fa fa-heart" type="submit"></button>
-        </form>
-        <h3 class="col-3">Likes: <%= post.likes %></h3>
-        <%if(post.user == user.id){ %>
-        <form
-          action="/post/deletePost/<%= post.id %>?_method=DELETE"
-          method="POST"
-          class="col-3"
-        >
-          <button class="btn btn-primary fa fa-trash" type="submit"></button>
-        </form>
-        <%}%>
+<header class="masthead" data-theme="dark">
+  <div class="container px-5">
+      <div class="row gx-5 align-items-center">
+          <div class="col-lg-6">
+              <!-- Mashead text and app badges-->
+              <div class="mb-5 mb-lg-0 text-center text-lg-start">
+                  <h1 class="display-1 lh-1 mb-3"></h1>
+                  <p class="lead fw-normal text-muted mb-5">
+                    <p><%= post.seven %></p>
+                    <p><%= post.five %></p>
+                    <p><%= post.three %></p>
+                    <p><%= post.one %></p>
+                    <p><%= post.seven %></p>
+                  </p>
+                  <div class="container">
+                    <div class="row justify-content-center mt-5">
+                      <div class="col-6">
+                          <form
+                            class="col-1"
+                            action="/post/likePost/<%= post.id %>?_method=PUT"
+                            method="POST"
+                          >
+                            <button class="btn btn-primary fa fa-heart" type="submit"></button>
+                          </form>
+                          <h3 class="col-3">Likes: <%= post.likes %></h3>
+                          <%if(post.user == user.id){ %>
+                          <form
+                            action="/post/deletePost/<%= post.id %>?_method=DELETE"
+                            method="POST"
+                            class="col-3"
+                          >
+                            <button class="btn btn-primary fa fa-trash" type="submit"></button>
+                          </form>
+                          <%}%>
+                        </div>
+                      </div>
+                    </div>
+                  
+                  <!-- <div class="d-flex flex-column flex-lg-row align-items-center">
+                      <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src="assets/img/google-play-badge.svg" alt="..." /></a>
+                      <a href="#!"><img class="app-badge" src="assets/img/app-store-badge.svg" alt="..." /></a>
+                  </div> -->
+              </div>
+          </div>
+          <div class="col-lg-6">
+              <!-- Masthead device mockup feature-->
+              <div class="masthead-device-mockup">
+              
+                  <div class="device-wrapper">
+                      <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black">
+                          <div class="screen bg-black">
+                              <!-- PUT CONTENTS HERE:-->
+                              <!-- * * This can be a video, image, or just about anything else.-->
+                              <!-- * * Set the max width of your media to 100% and the height to-->
+                              <!-- * * 100% like the demo example below.-->
+                              <img style="max-width: 150%; height: 100%" src="<%= post.image%>" >
+                             
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
+  </div>
+
+  
+  <ul>
+    <% for(var i=0; i<comments.length; i++) {%>
+      <li class="col-6 justify-content-between mt-5">
+       <h4> <%= comments[i].user.userName %></h4><%= comments[i].comment %>
+      </li>
+    <% } %>
+  </ul>
+  <form action="/comment/createComment/<%= post.id %>" method="POST">
+    <div class="mb-3">
+        <label for="comment" class="form-label">Comment</label>
+        <input type="text" class="form-control w-50" id="comment" name="comment">
     </div>
-    <div class="col-3 mt-5">
-      <p><%= post.seven %></p>
-      <p><%= post.five %></p>
-      <p><%= post.three %></p>
-      <p><%= post.one %></p>
-      <p><%= post.seven %></p>
-    </div>
-    <ul>
-      <% for(var i=0; i<comments.length; i++) {%>
-        <li class="col-6 justify-content-between mt-5">
-         <h4> <%= comments[i].user.userName %></h4><%= comments[i].comment %>
-        </li>
-      <% } %>
-    </ul>
-    <form action="/comment/createComment/<%= post.id %>" method="POST">
-      <div class="mb-3">
-          <label for="comment" class="form-label">Comment</label>
-          <input type="text" class="form-control" id="comment" name="comment">
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+   
     <div class="col-6 mt-5">
       <a class="btn btn-primary" href="/profile">Return to Profile</a>
       <a class="btn btn-primary" href="/feed">Return to Feed</a>
     </div>
-    </div>
+    
   </div>
-</div>
+
 
 <%- include('partials/footer') -%>
