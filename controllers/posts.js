@@ -41,8 +41,8 @@ module.exports = {
 
       await Post.create({
         seven: req.body.seven,
-        five: req.body.five,
-        three: req.body.three,
+        five: req.body.five.trim().split('\r\n'),
+        three: req.body.three.trim().split('\r\n'),
         one: req.body.one,
         image: result.secure_url,
         cloudinaryId: result.public_id,
@@ -69,6 +69,42 @@ module.exports = {
       console.log(err);
     }
   },
+  // likePost: async (req, res)=>{
+  //   var liked = false
+  //   try{
+  //     var post = await Post.findById({_id:req.params.id})
+  //     liked = (post.likes.includes(req.user.id))
+  //   } catch(err){
+  //   }
+  //   //if already liked we will remove user from likes array
+  //   if(liked){
+  //     try{
+  //       await Post.findOneAndUpdate({_id:req.params.id},
+  //         {
+  //           $pull : {'likes' : req.user.id}
+  //         })
+          
+  //         console.log('Removed user from likes array')
+  //         res.redirect('back')
+  //       }catch(err){
+  //         console.log(err)
+  //       }
+  //     }
+  //     //else add user to like array
+  //     else{
+  //       try{
+  //         await Post.findOneAndUpdate({_id:req.params.id},
+  //           {
+  //             $addToSet : {'likes' : req.user.id}
+  //           })
+            
+  //           console.log('Added user to likes array')
+  //           res.redirect(`back`)
+  //       }catch(err){
+  //           console.log(err)
+  //       }
+  //     }
+  //   },
   deletePost: async (req, res) => {
     try {
       // Find post by id

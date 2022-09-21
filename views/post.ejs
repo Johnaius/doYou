@@ -9,14 +9,29 @@
                   <h1 class="display-1 lh-1 mb-3"></h1>
                   <p class="lead fw-normal text-muted mb-5">
                     <p><%= post.seven %></p>
+                    <div class="col-md-6">
+                    
+                      <h2>Five:</h2> <hr class="style1">
+                      <ul class="list-unstyled">
+                      <% for(var i=0; i<post.five.length; i++) {%>
+                          <li class=""><%= post.five[i] %></li>
+                          <% } %>
+                        </ul>
+                        <h2>three</h2> <hr class="style1">
+                        <ol class="list-group list-group-numbered">
+                          <% for(var i=0; i<post.three.length; i++) {%>
+                          <li class=""><%= post.three[i] %></li>
+                          <% } %>
+                        </ol>
+                    </div>
                     <p><%= post.five %></p>
                     <p><%= post.three %></p>
                     <p><%= post.one %></p>
-                    <p><%= post.seven %></p>
+                   
                   </p>
                   <div class="container">
                     <div class="row justify-content-center mt-5">
-                      <div class="col-6">
+                      <div class="col-20">
                           <form
                             class="col-1"
                             action="/post/likePost/<%= post.id %>?_method=PUT"

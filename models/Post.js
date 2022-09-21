@@ -6,11 +6,11 @@ const PostSchema = new mongoose.Schema({
     required: true,
   },
   five: {
-    type: String,
+    type: [String],
     required: true,
   },
   three: {
-    type: String,
+    type: [String],
     required: true,
   },
   one: {
