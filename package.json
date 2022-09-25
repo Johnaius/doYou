@@ -4,7 +4,7 @@
   "description": "100Devs Social Network",
   "main": "server.js",
   "scripts": {
-    "npm start": "nodemon server.js",
+    "npm start": "nodemone server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "tailwind": "npx tailwindcss -i ./public/css/styles.css -o ./dist/output.css --watch"
   },
@@ -32,5 +32,9 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.1.8"
+  },
+  "engines": {
+    "node": ">= 6.9.4",
+    "npm": ">= 4.4.0"
   }
 }
