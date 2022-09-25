@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Binary Upload Boom</title>
+   
+    <title>DoYou</title>
     <link
       rel="icon"
       type="image/png"
@@ -24,13 +25,30 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/css/style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
-    <header class="container">
-      <div class="text-center">
+  <body class="d-flex h-100s" data-theme="dark" >
+      <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column z-1">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top" >
+        <div class="container">
+          <a class="navbar-brand" href="/">
+            <img src="/imgs/doyou.png" alt="" width="150" height="150">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+              <a class="btn btn-outline btn-primary btn-nav mr-3  " href="/login" role="button">Login</a>
+              <a class="btn btn-outline btn-primary btn-nav" href="/signup" role="button">Sign up</a>
+              <!-- <button href="/login" class="btn btn-outline-dark" type="submit">Login</button> -->
+              <!-- <button href="/signup" class="btn btn-dark" type="submit">Sign up</button> -->
+          </div>
+        </div>
+      </nav>
+      <!-- <div class="text-center">
         <h1 class=""><a href="/profile">Binary Upload Boom</a></h1>
         <span>The #100Devs Social Network</span>
-      </div>
-    </header>
+      </div> -->
   </body>
 </html>

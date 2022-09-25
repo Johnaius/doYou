@@ -1,15 +1,26 @@
-<%- include('partials/header') -%>
-  <div class="container">
-    <div class="row justify-content-center mt-5">
-      <ul class="row list-unstyled">
+<%- include('partials/logged-in-header') -%>
+<div class="container card-container">
+  <h1 class="text-4xl mb-12">Explore doYou's</h1>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+
         <% for(var i=0; i<posts.length; i++) {%>
-          <li class="col-6 justify-content-between mt-5">
-            <a href="/post/<%= posts[i]._id%>">
-              <img class="img-fluid" src="<%= posts[i].image%>">
-            </a>
-          </li>
-        <% } %>
-        </ul>
-    </div>
-  </div>  
+          <div class="col"data-theme="dark">
+            <div class="card h-100"data-theme="dark">
+              <img src="<%= posts[i].image%>" class="card-img-top" alt="...">
+              <div class="card-body" data-theme="dark">
+                <h5 class="card-title"><%= posts[i].title%></h5>
+                <!-- <p class="card-text"><i class="px-1 bi bi-heart"></i><%= posts[i].likes.length - 1 %></p> -->
+                <p class="card-text"><small class="text-muted">By: <%= userName[i]%></small></p>
+                <p class="card-text"><%= posts[i].one %></p>
+                <a href="/post/<%= posts[i]._id%>" class="btn btn-outline btn-primary">View 7-5-3-1</a>
+              </div>
+              <!-- <div class="card-footer">
+                <span class="badge bg-primary"><%= posts[i].country%></span>
+                <span class="badge rounded-pill bg-secondary"><%= posts[i].dish%></span>
+              </div> -->
+            </div>
+          </div>
+          <% } %>
+        </div>
+      </div>
 <%- include('partials/footer') -%>

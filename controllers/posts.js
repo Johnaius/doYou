@@ -1,6 +1,7 @@
 const cloudinary = require("../middleware/cloudinary");
 const Post = require("../models/Post");
 const Comment = require("../models/Comment");
+const User = require("../models/User");
 
 module.exports = {
   getProfile: async (req, res) => {
@@ -14,7 +15,12 @@ module.exports = {
   getFeed: async (req, res) => {
     try {
       const posts = await Post.find().sort({ createdAt: "desc" }).lean();
-      res.render("feed.ejs", { posts: posts });
+      var users = []
+      for(i in posts){
+        var user = await User.findById(posts[i].user)
+        users.push(user.userName)
+      }
+      res.render("feed.ejs", { posts: posts, userName: users, user: req.user });
     } catch (err) {
       console.log(err);
     }
@@ -23,8 +29,7 @@ module.exports = {
     try {
       const post = await Post.findById(req.params.id);
       const comments = await Comment.find({post: req.params.id}).sort({ createdAt: "desc" }).populate('user').lean();
-      
-      res.render("post.ejs", { post: post, user: req.user , comments: comments, solutions: solutions});
+      res.render("post.ejs", { post: post, user: req.user , comments: comments});
     } catch (err) {
       console.log(err);
     }
@@ -35,10 +40,12 @@ module.exports = {
       const result = await cloudinary.uploader.upload(req.file.path);
 
       await Post.create({
-        title: req.body.title,
+        seven: req.body.seven,
+        five: req.body.five,
+        three: req.body.three,
+        one: req.body.one,
         image: result.secure_url,
         cloudinaryId: result.public_id,
-        caption: req.body.caption,
         likes: 0,
         user: req.user.id,
       });

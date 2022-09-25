@@ -1,32 +1,41 @@
-<%- include('partials/header') -%>
-<div class="container">
-  <div class="row mt-5">
+
+<%- include('partials/logged-in-header') -%>
+<div class="container card-container">
+  <div class="row justify-content-center mb-5 min-h-screen">
       <div class="col-6">
-          <div>
+          <!-- <div>
               <p><strong>User Name</strong>: <%= user.userName %></p>
               <p><strong>Email</strong>: <%= user.email %></p>
               <a href="/logout" class="col-3 btn btn-primary">Logout</a>
-          </div>
-          <div class="mt-5">
-            <h2>Add a post</h2>
+          </div> -->
+          <div class="">
+            <h2 class="text-3xl">Add a post</h2>
             <form action="/post/createPost" enctype="multipart/form-data" method="POST">
               <div class="mb-3">
-                  <label for="title" class="form-label">Title</label>
-                  <input type="text" class="form-control" id="title" name="title">
-              </div>
-              <div class="mb-3">
-                <label for="caption" class="form-label">Caption</label>
-                <textarea class="form-control" id="caption" name="caption"></textarea>
-              </div>
-              <div class="mb-3">
                 <label for="imgUpload" class="form-label">Image</label>
-                <input type="file" class="form-control" id="imageUpload" name="file">
+                <input type="file" class="form-control textarea textarea-error" id="imageUpload" name="file" >
               </div>
-              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+              <div class="mb-3">
+                  <label for="seven" class="form-label">Seven of Something</label>
+                  <input type="text" class="form-control textarea textarea-secondary" id="seven" name="seven">
+              </div>
+              <div class="mb-3">
+                <label for="five" class="form-label">Five thing you're grateful for now</label>
+                <textarea rows="6" class="form-control textarea textarea-primary" id="five" name="five"></textarea>
+              </div>  
+              <div class="mb-3">
+                <label for="three" class="form-label">Three thing to work on</label>
+                <textarea rows="4" class="form-control textarea textarea-info" id="three" name="three"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="one" class="form-label ">One positive fact about you</label>
+                <textarea class="form-control textarea textarea-success" id="one" name="one"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary mb-5" value="Upload">Submit</button>
             </form>
           </div>
       </div>
-      <div class="col-6">
+      <!-- <div class="col-6">
         <ul class="row list-unstyled">
         <% for(var i=0; i<posts.length; i++) {%>
           <li class="col-6 justify-content-between mt-5">
@@ -35,12 +44,15 @@
             </a>
           </li>
         <% } %>
-        </ul>
-        <div class="row justify-content-center mt-5">
+        </ul> -->
+        <!-- <div class="row justify-content-center mt-5">
           <a class="btn btn-primary" href="/feed">Return to Feed</a>
-        </div>  
+        </div>   -->
       </div>  
     </div>
   </div>
-</div>
+
+
+
+
 <%- include('partials/footer') -%>

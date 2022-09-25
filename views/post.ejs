@@ -1,4 +1,4 @@
-<%- include('partials/header') -%>
+<%- include('partials/logged-in-header') -%>
 <div class="container">
   <div class="row justify-content-center mt-5">
     <div class="col-6">
@@ -25,7 +25,11 @@
       </div>
     </div>
     <div class="col-3 mt-5">
-      <p><%= post.caption %></p>
+      <p><%= post.seven %></p>
+      <p><%= post.five %></p>
+      <p><%= post.three %></p>
+      <p><%= post.one %></p>
+      <p><%= post.seven %></p>
     </div>
     <ul>
       <% for(var i=0; i<comments.length; i++) {%>
