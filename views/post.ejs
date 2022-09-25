@@ -1,79 +1,103 @@
-<!-- <head>   <link rel="stylesheet" href="/css/test.css" /></head> -->
 <%- include('partials/logged-in-header') -%>
 
 <div class="hero min-h-screen bg-base-200">
   <div class="hero-content flex-col lg:flex-row-reverse">
-    <img src="<%= post.image%>" class="max-w-sm rounded-lg shadow-2xl" style="max-width: 25%; height: 25%" />
-    <div>
+    <img
+      src="<%= post.image%>"
+      class="max-w-sm rounded-lg shadow-2xl"
+      style="max-width: 25%; height: 25%"
+    />
+    <div class="mt-5">
       <h1 class="text-5xl font-bold">7-5-3-1</h1>
-      <h2 class="text-2xl font-bold mt-3">Seven of something</h2><hr class="style1">
+      <h2 class="text-2xl font-bold mt-3">Seven of something</h2>
+      <hr class="style1" />
       <ul class="list-unstyled">
-       <li><%= post.seven %></li>
+        <li><%= post.seven %></li>
       </ul>
-      <h2 class="text-2xl font-bold mt-3">Five Things You're Grateful For:</h2> <hr class="style1">
-                      <ol class="list-group list-group-numbered">
-                      <% for(var i=0; i<post.five.length; i++) {%>
-                          <li class=""><%= post.five[i] %></li>
-                          <% } %>
-                        </ol>
-                        <h2 class="text-2xl font-bold mt-3">Three things to work on</h2> <hr class="style1">
-                        <ol class="list-group list-group-numbered">
-                          <% for(var i=0; i<post.three.length; i++) {%>
-                          <li class=""><%= post.three[i] %></li>
-                          <% } %>
-                        </ol>
-                        <h2 class="text-2xl font-bold mt-3">One positve thing about you</h2><hr class="style1">
-                        <ul class="list-unstyled py-6">
-                         <li><%= post.one %></li>
-                        </ul>
-      <!-- <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p> -->
-                            <form
-                            class="col-1"
-                            action="/post/likePost/<%= post.id %>?_method=PUT"
-                            method="POST"
-                            >
-                               <button class="btn btn-primary fa fa-heart" type="submit"></button>
-                            </form>
-                            <%if(post.user == user.id){ %>
-                            <form
-                            action="/post/deletePost/<%= post.id %>?_method=DELETE"
-                            method="POST"
-                            class="col-1"
-                            >
-                              <button class="btn btn-primary fa fa-trash" type="submit"></button>
-                            </form>
-                            <% } %>
-                   </div>
-                      </div>
+      <h2 class="text-2xl font-bold mt-3">Five Things You're Grateful For:</h2>
+      <hr class="style1" />
+      <ol class="list-group list-group-numbered">
+        <% for(var i=0; i<post.five.length; i++) {%>
+          <li class=""><%= post.five[i] %></li>
+          <% } %>
+
+          <h2 class="text-2xl font-bold mt-3">Three things to work on</h2>
+          <hr class="style1" />
+          <ol class="list-group list-group-numbered">
+            <% for(var i=0; i<post.three.length; i++) {%>
+              <li class=""><%= post.three[i] %></li>
+              <% } %>
+
+              <h2 class="text-2xl font-bold mt-3">
+                One positve thing about you
+              </h2>
+              <hr class="style1" />
+              <ul class="list-unstyled py-6">
+                <li><%= post.one %></li>
+              </ul>
+
+              <!-- <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p> -->
+              <div class="btn-group">
+                <form
+                  class="col-1"
+                  action="/post/likePost/<%= post.id %>?_method=PUT"
+                  method="POST"
+                >
+                  <button
+                    class="btn btn-primary fa fa-heart"
+                    type="submit"
+                  ></button>
+                </form>
+                <%if(post.user == user.id){ %>
+                <form
+                  action="/post/deletePost/<%= post.id %>?_method=DELETE"
+                  method="POST"
+                  class="col-1"
+                >
+                  <button
+                    class="btn btn-primary fa fa-trash ml-5"
+                    type="submit"
+                  ></button>
+                </form>
+                <% } %>
+              </div>
+              <ul>
+                <% for(var i=0; i<comments.length; i++) {%>
+                  <li class="col-6 justify-content-between mt-5">
+                    <h4><%= comments[i].user.userName %></h4>
+                    <%= comments[i].comment %>
+                  </li>
+                  <% } %>
+                  <form
+                    action="/comment/createComment/<%= post.id %>"
+                    method="POST"
+                  >
+                    <div class="mb-3">
+                      <label for="comment" class="form-label">Comment</label>
+                      <input
+                        type="text"
+                        class="form-control w-50"
+                        id="comment"
+                        name="comment"
+                      />
                     </div>
-
-
-
-
-
-
-  
-  <ul>
-    <% for(var i=0; i<comments.length; i++) {%>
-      <li class="col-6 justify-content-between mt-5">
-       <h4> <%= comments[i].user.userName %></h4><%= comments[i].comment %>
-      </li>
-    <% } %>
-  </ul>
-  <form action="/comment/createComment/<%= post.id %>" method="POST">
-    <div class="mb-3">
-        <label for="comment" class="form-label">Comment</label>
-        <input type="text" class="form-control w-50" id="comment" name="comment">
+                    <button type="submit" class="btn btn-primary">
+                      Submit
+                    </button>
+                  </form>
+                  <div class="col-6 mt-5">
+                    <a class="btn btn-primary" href="/profile"
+                      >Return to Profile</a
+                    >
+                    <a class="btn btn-primary" href="/feed">Return to Feed</a>
+                  </div>
+                </comments.length;>
+              </ul></post.three.length;
+            >
+          </ol></post.five.length;
+        >
+      </ol>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-   
-    <div class="col-6 mt-5">
-      <a class="btn btn-primary" href="/profile">Return to Profile</a>
-      <a class="btn btn-primary" href="/feed">Return to Feed</a>
-    </div>
-    
-
-
-
+  </div>
+</div>
 <%- include('partials/footer') -%>

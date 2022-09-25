@@ -15,10 +15,10 @@ module.exports = {
   getFeed: async (req, res) => {
     try {
       const posts = await Post.find().sort({ createdAt: "desc" }).lean();
-      var users = []
-      for(i in posts){
-        var user = await User.findById(posts[i].user)
-        users.push(user.userName)
+      var users = [];
+      for (i in posts) {
+        var user = await User.findById(posts[i].user);
+        users.push(user.userName);
       }
       res.render("feed.ejs", { posts: posts, userName: users, user: req.user });
     } catch (err) {
@@ -28,8 +28,15 @@ module.exports = {
   getPost: async (req, res) => {
     try {
       const post = await Post.findById(req.params.id);
-      const comments = await Comment.find({post: req.params.id}).sort({ createdAt: "desc" }).populate('user').lean();
-      res.render("post.ejs", { post: post, user: req.user , comments: comments});
+      const comments = await Comment.find({ post: req.params.id })
+        .sort({ createdAt: "desc" })
+        .populate("user")
+        .lean();
+      res.render("post.ejs", {
+        post: post,
+        user: req.user,
+        comments: comments,
+      });
     } catch (err) {
       console.log(err);
     }
@@ -41,8 +48,8 @@ module.exports = {
 
       await Post.create({
         seven: req.body.seven,
-        five: req.body.five.trim().split('\r\n'),
-        three: req.body.three.trim().split('\r\n'),
+        five: req.body.five.trim().split("\r\n"),
+        three: req.body.three.trim().split("\r\n"),
         one: req.body.one,
         image: result.secure_url,
         cloudinaryId: result.public_id,
@@ -83,7 +90,7 @@ module.exports = {
   //         {
   //           $pull : {'likes' : req.user.id}
   //         })
-          
+
   //         console.log('Removed user from likes array')
   //         res.redirect('back')
   //       }catch(err){
@@ -97,7 +104,7 @@ module.exports = {
   //           {
   //             $addToSet : {'likes' : req.user.id}
   //           })
-            
+
   //           console.log('Added user to likes array')
   //           res.redirect(`back`)
   //       }catch(err){
@@ -111,7 +118,7 @@ module.exports = {
       let post = await Post.findById({ _id: req.params.id });
 
       // let comment= await Comment.findById({ _id: req.params.id });
-      
+
       // Delete image from cloudinary
       await cloudinary.uploader.destroy(post.cloudinaryId);
       // Delete post from db
