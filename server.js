@@ -60,7 +60,7 @@ app.use("/post", postRoutes);
 app.use("/comment", commentRoutes);
 
 //Server Running
-let port =process.env.PORT || 2121;
+let port = process.env.PORT || 8000;
 app.listen(port, () => {
   console.log("Server is running, you better catch it!");
 });
