@@ -8,43 +8,48 @@
               <div class="mb-5 mb-lg-0 text-center text-lg-start">
                   <h1 class="display-1 lh-1 mb-3"></h1>
                   <p class="lead fw-normal text-muted mb-5">
-                    <p><%= post.seven %></p>
+                    <h2>Seven of something</h2><hr class="style1">
+                    <ul class="list-unstyled">
+                     <li><%= post.seven %></li>
+                    </ul>
+                   </p>
+                   
                     <div class="col-md-6">
                     
-                      <h2>Five:</h2> <hr class="style1">
-                      <ul class="list-unstyled">
+                      <h2>Five Things You're Grateful For:</h2> <hr class="style1">
+                      <ol class="list-group list-group-numbered">
                       <% for(var i=0; i<post.five.length; i++) {%>
                           <li class=""><%= post.five[i] %></li>
                           <% } %>
-                        </ul>
-                        <h2>three</h2> <hr class="style1">
+                        </ol>
+                        <h2>Three things to work on</h2> <hr class="style1">
                         <ol class="list-group list-group-numbered">
                           <% for(var i=0; i<post.three.length; i++) {%>
                           <li class=""><%= post.three[i] %></li>
                           <% } %>
                         </ol>
                     </div>
-                    <p><%= post.five %></p>
-                    <p><%= post.three %></p>
-                    <p><%= post.one %></p>
-                   
+                   <h2>One positve thing about you</h2><hr class="style1">
+                   <ul class="list-unstyled">
+                    <li><%= post.one %></li>
+                   </ul>
                   </p>
                   <div class="container">
                     <div class="row justify-content-center mt-5">
                       <div class="col-20">
                           <form
-                            class="col-1"
+                            class="col-1 float-left clear-both"
                             action="/post/likePost/<%= post.id %>?_method=PUT"
                             method="POST"
                           >
                             <button class="btn btn-primary fa fa-heart" type="submit"></button>
                           </form>
-                          <h3 class="col-3">Likes: <%= post.likes %></h3>
+                          <span class="float-left clear-both">Likes: <%= post.likes %></span>
                           <%if(post.user == user.id){ %>
                           <form
                             action="/post/deletePost/<%= post.id %>?_method=DELETE"
                             method="POST"
-                            class="col-3"
+                            class="col-1"
                           >
                             <button class="btn btn-primary fa fa-trash" type="submit"></button>
                           </form>
