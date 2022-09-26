@@ -1,12 +1,79 @@
 <%- include('partials/logged-in-header') -%>
+<div class="container card-container">
+  <div class="row">
+    <h1>7-5-3-1</h1>
+    <!-- <p><%= post.caption %></p> -->
+    <p>By: <%= user.userName %></p>
+    <div class="col-md-6">
+      <img src="<%= post.image%>" class="img-fluid" alt="Responsive image">
+      <div class="row row-cols-3">
+        <div class="btn-group mt-2">
+          <h3 class="col">Likes: <%= post.likes %> </h3>
+          
+          <form
+            class="col-2"
+            action="/post/likePost/<%= post.id %>?_method=PUT"
+            method="POST"
+            >
+            <button
+              class="btn btn-primary fa fa-heart"
+              type="submit"
+            >
+            </button>
+          </form>
+        
+        <%if(post.user == user.id){ %>
+        <form
+          action="/post/deletePost/<%= post.id %>?_method=DELETE"
+          method="POST"
+          class="col-3"
+        >
+          <button class="btn btn-primary fa fa-trash" type="submit"></button>
+        </form>
+        <%}%>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <!-- <h3 class="display-4">Recipe</h3> -->
+      <h2>Seven Of Something</h2> <hr class="style1">
+      <ul class="list-unstyled">
+        <li><%= post.seven %></li>
+      </ul>
+      <h2>Five Things You're Grateful For</h2> <hr class="style1">
+      <ul class="list-unstyled">
+      <% for(var i=0; i<post.five.length; i++) {%>
+          <li class="p-1 g-2"><%= post.five[i] %></li>
+          <% } %>
+        </ul>
+        <h2>Three Things Todo / To Work On</h2> <hr class="style1">
+        <ol class="list-group list-group-numbered">
+          <% for(var i=0; i<post.three.length; i++) {%>
+          <li class="p-1"><%= post.three[i] %></li>
+          <% } %>
+        </ol>
+        <h2>One Thing About You</h2> <hr class="style1">
+      <ul class="list-unstyled">
+        <li><%= post.one %></li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+
+
+
+
+
 
 <div class="hero min-h-screen bg-base-200">
   <div class="hero-content flex-col lg:flex-row-reverse">
-    <img
-      src="<%= post.image%>"
-      class="img-fluid" alt="Responsive image"
-      style="max-width: 25%; height: 25%"
-    />
+    <div class="col-md-6">
+      <img src="<%= post.image%>" class="img-fluid" alt="Responsive image">
+      </div>
     <div class="mt-5">
       <h1 class="text-5xl font-bold">7-5-3-1</h1>
       <h2 class="text-2xl font-bold mt-3">Seven of something</h2>
