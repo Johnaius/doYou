@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   
+
     <title>DoYou</title>
-    <!-- <link
+    <link
       rel="icon"
       type="image/png"
       sizes="32x32"
       href="/imgs/favicon-32x32.png"
-    /> -->
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -25,38 +25,67 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/css/style.css" />
-  
-    <script src="https://cdn.tailwindcss.com"></script>
-        <!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
 
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
   </head>
 
   <body class="d-flex h-100" data-theme="dark">
-
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <nav class="navbar navbar-expand-lg navbar-light fixed-top mb-2" style="background-color: rgb(42,48,60)">
+      <nav
+        class="navbar navbar-expand-lg navbar-light fixed-top mb-2"
+        style="background-color: rgb(42, 48, 60)"
+      >
         <div class="container mb-2">
           <a class="navbar-brand" href="/feed">
-            <img src="/imgs/doyou.png" alt="" width="110" height="110">
+            <img src="/imgs/doyou.png" alt="" width="110" height="110" />
           </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-              <!-- <a class="btn btn-outline-dark btn-nav" href="/login" role="button">Login</a>
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarSupportedContent"
+          >
+            <!-- <a class="btn btn-outline-dark btn-nav" href="/login" role="button">Login</a>
               <a class="btn btn-dark btn-nav" href="/signup" role="button">Sign up</a> -->
-              <span class="navbar-text text-white text-xl mr-12 ">Hello, <%= user.userName %>!</span>
-              <a class="nav-link active text-xl mr-5" aria-current="page" href="/feed">Explore</a>
-              <!-- <a class="nav-link" href="/my-recipes">My Recipes</a>
+            <span class="navbar-text text-white text-xl mr-12"
+              >Hello, <%= user.userName %>!</span
+            >
+            <a
+              class="nav-link active text-xl mr-5"
+              aria-current="page"
+              href="/feed"
+              >Explore</a
+            >
+            <!-- <a class="nav-link" href="/my-recipes">My Recipes</a>
               <a class="nav-link" href="/bookmarks">Favorite Recipes</a> -->
-              <a class="nav-link text-xl mr-5" href="/profile">Add 7-5-3-1</a>
-              <!-- <a class="btn btn-primary" href="/feed" role="button"><i class="bi bi-house-door-fill"></i></a> -->
-              <!-- <a class="btn btn-primary" href="/profile" role="button"><i class="bi bi-person-fill"></i></a> -->
-              <a href="/logout" class="btn btn-dark btn-nav" role="button">Logout</a>
-              <!-- <button href="/login" class="btn btn-outline-dark" type="submit">Login</button> -->
-              <!-- <button href="/signup" class="btn btn-dark" type="submit">Sign up</button> -->
+            <a class="nav-link text-xl mr-5" href="/profile">Add 7-5-3-1</a>
+            <!-- <a class="btn btn-primary" href="/feed" role="button"><i class="bi bi-house-door-fill"></i></a> -->
+            <!-- <a class="btn btn-primary" href="/profile" role="button"><i class="bi bi-person-fill"></i></a> -->
+            <a href="/logout" class="btn btn-dark btn-nav" role="button"
+              >Logout</a
+            >
+            <!-- <button href="/login" class="btn btn-outline-dark" type="submit">Login</button> -->
+            <!-- <button href="/signup" class="btn btn-dark" type="submit">Sign up</button> -->
           </div>
         </div>
       </nav>
@@ -64,5 +93,6 @@
         <h1 class=""><a href="/profile">Binary Upload Boom</a></h1>
         <span>The #100Devs Social Network</span>
       </div> -->
- 
- 
+    
+  </body>
+</html>

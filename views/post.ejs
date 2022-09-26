@@ -19,15 +19,15 @@
       <ol class="list-group list-group-numbered">
         <% for(var i=0; i<post.five.length; i++) {%>
           <li class=""><%= post.five[i] %></li>
-          <% } %>
-
+        <% } %>
+      </ol>
           <h2 class="text-2xl font-bold mt-3">Three things to work on</h2>
           <hr class="style1" />
           <ol class="list-group list-group-numbered">
             <% for(var i=0; i<post.three.length; i++) {%>
               <li class=""><%= post.three[i] %></li>
-              <% } %>
-
+            <% } %>
+          </ol>
               <h2 class="text-2xl font-bold mt-3">
                 One positve thing about you
               </h2>
@@ -35,19 +35,24 @@
               <ul class="list-unstyled py-6">
                 <li><%= post.one %></li>
               </ul>
+              <hr class="style1" />
 
               <!-- <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p> -->
-              <div class="btn-group">
+              <div class="btn-group mt-2">
+                <h3 class="col">Likes: <%= post.likes %> </h3>
+                
                 <form
                   class="col-1"
                   action="/post/likePost/<%= post.id %>?_method=PUT"
                   method="POST"
-                >
+                  >
                   <button
                     class="btn btn-primary fa fa-heart"
                     type="submit"
-                  ></button>
+                  >
+                  </button>
                 </form>
+               
                 <%if(post.user == user.id){ %>
                 <form
                   action="/post/deletePost/<%= post.id %>?_method=DELETE"
@@ -55,9 +60,10 @@
                   class="col-1"
                 >
                   <button
-                    class="btn btn-primary fa fa-trash ml-5"
+                    class="btn btn-primary fa fa-trash ml-12 mb-5"
                     type="submit"
-                  ></button>
+                  >
+                </button>
                 </form>
                 <% } %>
               </div>
@@ -68,10 +74,11 @@
                     <%= comments[i].comment %>
                   </li>
                   <% } %>
+              </ul>
                   <form
                     action="/comment/createComment/<%= post.id %>"
                     method="POST"
-                  >
+                    >
                     <div class="mb-3">
                       <label for="comment" class="form-label">Comment</label>
                       <input
@@ -85,19 +92,14 @@
                       Submit
                     </button>
                   </form>
-                  <div class="col-6 mt-5">
+                  <!-- <div class="col-6 mt-5">
                     <a class="btn btn-primary" href="/profile"
                       >Return to Profile</a
                     >
                     <a class="btn btn-primary" href="/feed">Return to Feed</a>
-                  </div>
-                </comments.length;>
-              </ul></post.three.length;
-            >
-          </ol></post.five.length;
-        >
-      </ol>
-    </div>
-  </div>
+                  </div> -->
+  
 </div>
-<%- include('partials/footer') -%>
+</div>          
+</div>
+                  <%- include('partials/footer') -%>
