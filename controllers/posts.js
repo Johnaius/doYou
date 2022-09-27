@@ -48,8 +48,8 @@ module.exports = {
 
       await Post.create({
         seven: req.body.seven,
-        five: req.body.five.trim().split("\r\n"),
-        three: req.body.three.trim().split("\r\n"),
+        five: req.body.five.trim().split("\n"),
+        three: req.body.three.trim().split("\n"),
         one: req.body.one,
         image: result.secure_url,
         cloudinaryId: result.public_id,
