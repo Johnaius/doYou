@@ -45,6 +45,7 @@ module.exports = {
     try {
       // Upload image to cloudinary
       const result = await cloudinary.uploader.upload(req.file.path);
+      
         await Post.create({
         seven: req.body.seven,
         five: req.body.five.trim().split("\r\n"),
@@ -56,7 +57,7 @@ module.exports = {
         user: req.user.id,
       });
       console.log("Post has been added!");
-      res.redirect("/profile");
+      res.redirect("/feed");
     } catch (err) {
       console.log(err);
     }

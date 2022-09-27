@@ -15,8 +15,8 @@
             <form action="/post/createPost" enctype="multipart/form-data" method="POST">
 
               <div class="mb-3">
-                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="file_input">Include One Picture or Piece of Art</label>
-                <input class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
+                <label class="form-label block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="imageUpload">Include One Picture or Piece of Art</label>
+                <input type="file" class=" form-control block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="imageUpload" name="file">
               </div>
 
               <div class="mb-3">
@@ -38,7 +38,7 @@
                 <label for="one" class="form-label form-label block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">One Positive Affirmation About Self</label>
                 <textarea class="form-control block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="one" name="one"></textarea>
               </div>
-              
+
               <button type="submit" class="btn btn-primary mb-5" value="Upload">Submit</button>
             </form>
           </div>
