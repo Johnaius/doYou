@@ -15,20 +15,20 @@
       </ul>
       <h2 class="text-2xl font-bold mt-3">Five Things You're Grateful For:</h2>
       <hr class="style1" />
-      <ol class="list-group list-group-numbered">
+      <ul class="list-group list-group">
         <% for(var i=0; i<post.five.length; i++) {%>
-          <li class=""><%= post.five[i] %></li>
+          <li class="">• <%= post.five[i] %></li>
         <% } %>
-      </ol>
+      </ul>
           <h2 class="text-2xl font-bold mt-3">Three things to work on</h2>
           <hr class="style1" />
-          <ol class="list-group list-group-numbered">
+          <ul class="list-group list-group">
             <% for(var i=0; i<post.three.length; i++) {%>
-              <li class=""><%= post.three[i] %></li>
+              <li class="">∆ <%= post.three[i] %></li>
             <% } %>
-          </ol>
+          </ul>
               <h2 class="text-2xl font-bold mt-3">
-                One positve thing about you
+                One fact or positive affirmation about you
               </h2>
               <hr class="style1" />
               <ul class="list-unstyled py-6">
