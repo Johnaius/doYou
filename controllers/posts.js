@@ -7,7 +7,8 @@ module.exports = {
   getProfile: async (req, res) => {
     try {
       const posts = await Post.find({ user: req.user.id });
-      res.render("profile.ejs", { posts: posts, user: req.user });
+      console.log(req.user)
+      res.render("profile.ejs", { posts: posts, user: req.user, date: posts.createdAt,  });
     } catch (err) {
       console.log(err);
     }

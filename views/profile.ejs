@@ -1,15 +1,56 @@
 
 <%- include('partials/logged-in-header') -%>
-<div class="container card-container">
-  <div class="row justify-content-center mb-5 min-h-screen">
-      <div class="col-6">
-          <!-- <div>
-              <p><strong>User Name</strong>: <%= user.userName %></p>
-              <p><strong>Email</strong>: <%= user.email %></p>
-              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
-          </div> -->
+
+          <div class="mt-24">
+              <p class="mt-11"><strong>User Name</strong>: <%= user.userName %></p>
+              <p class="mb-2"><strong>Email</strong>: <%= user.email %></p>
+           
+              <!-- <a href="/logout" class="col-3 btn btn-primary">Logout</a> -->
+          </div>
+          <a class="btn btn-active btn-primary float-right mb-2" href="#post" role="button">Make A Post</a>
+               <!-- <div class="col-6">
+        <ul class="row list-unstyled">
+        <% for(var i=0; i<posts.length; i++) {%>
+          <li class="col-6 justify-content-between mt-5">
+            <a href="/post/<%= posts[i]._id%>">
+              <img class="img-fluid" src="<%= posts[i].image%>">
+            </a>
+          </li>
+        <% } %>
+        </ul>
+        </div> -->
+
+        <section class="text-gray-600 body-font">
+        <div class="flex flex-wrap -m-2">        
+          <div class="p-2 lg:w-full md:w-1/2 w-full sm:w-full">           
+            <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+              <ul class="row list-unstyled">
+                <p> <%= user.userName %>'s Posts</p>
+                <% for(var i=0; i<posts.length; i++) {%>
+                  <li class="col-6 justify-content-between mt-5">
+                    <a href="/post/<%= posts[i]._id%>">
+                      <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="<%= posts[i].image%>">
+                        <div class="flex-grow">
+                          <h2 class="text-gray-900 title-font font-medium"><%= posts[i].createdAt.toLocaleDateString() %></h2>
+                            <p class="text-gray-500"><%= posts[i].one %></p>
+                        </div>
+                    </a>
+                  </li>
+                  <% } %>
+               </ul>
+            </div>
+          </div>
+</div></section>
+
+<!-- 
+        <div class="row justify-content-center mt-5">
+          <a class="btn btn-primary" href="/feed">Return to Feed</a>
+        </div>   -->
+        <div class="container card-container" id="post">
+          <div class="row justify-content-center mb-5 min-h-screen">
+              <div class="col-6">
           <div class="">
-            <h2 class="text-3xl">Add a post</h2>
+            <h2 class="text-3xl" >Add a post</h2>
             <p>Be sure to add multiple items on seperate lines</p>
           </br>
             <form action="/post/createPost" enctype="multipart/form-data" method="POST">
@@ -42,22 +83,9 @@
               <button type="submit" class="btn btn-primary mb-5" value="Upload">Submit</button>
             </form>
           </div>
-      </div>
-      <!-- <div class="col-6">
-        <ul class="row list-unstyled">
-        <% for(var i=0; i<posts.length; i++) {%>
-          <li class="col-6 justify-content-between mt-5">
-            <a href="/post/<%= posts[i]._id%>">
-              <img class="img-fluid" src="<%= posts[i].image%>">
-            </a>
-          </li>
-        <% } %>
-        </ul> -->
-        <!-- <div class="row justify-content-center mt-5">
-          <a class="btn btn-primary" href="/feed">Return to Feed</a>
-        </div>   -->
-      </div>  
-    </div>
+  
+ 
+     
 
 
 
