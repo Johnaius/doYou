@@ -17,7 +17,6 @@ module.exports = {
       console.log(err);
     }
   },
-
 //   deleteComment: async (req, res) => {
 //     try {
 //       // Find comment by id
