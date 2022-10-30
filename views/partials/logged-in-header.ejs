@@ -44,54 +44,31 @@
   </head>
 
   <body class="d-flex h-100" data-theme="dark">
-
-
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <nav
-        class="navbar navbar-expand-lg navbar-light "
-        style="background-color: rgb(42, 48, 60)"
-      >
-        <div class="container mb-2 mt-10">
-          <a class="navbar-brand" href="/feed">
-            <img src="/imgs/doyou.png" alt="" width="110" height="110" />
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          
-          <div
-            class="collapse navbar-collapse justify-content-end"
-            id="navbarSupportedContent"
-          >
-            <!-- <a class="btn btn-outline-dark btn-nav" href="/login" role="button">Login</a>
-              <a class="btn btn-dark btn-nav" href="/signup" role="button">Sign up</a> -->
-            <span class="navbar-text text-white text-xl mr-12"
+
+      <div class="navbar bg-base-100">
+        <div class="flex-1">
+          <a class="btn btn-ghost normal-case text-xl" href="/feed"><img src="/imgs/doyou.png" alt="" width="110" height="110" /></a>
+        </div>
+        <div class="flex-none">
+          <ul class="menu menu-horizontal p-0">
+            <li>  <span class="navbar-text text-white text-xl mr-12"
               >Hello, <%= user.userName %>!</span
-            >
-            <a
-              class="nav-link mr-1"
-              aria-current="page"
-              href="/feed"
-              >Explore</a
-            >
-            <!-- <a class="nav-link" href="/my-recipes">My Recipes</a>
-              <a class="nav-link" href="/bookmarks">Favorite Recipes</a> -->
-            <a class="nav-link  " href="/profile#post">Post 7-5-3-1</a>
-            <a class="nav-link mr-5" href="/profile">My Posts</a>
-            <!-- <a class="btn btn-primary" href="/feed" role="button"><i class="bi bi-house-door-fill"></i></a> -->
-            <!-- <a class="btn btn-primary" href="/profile" role="button"><i class="bi bi-person-fill"></i></a> -->
-            <a href="/logout" class="btn btn-active btn-primary" role="button">Logout</a>
-            <a class="btn btn-active btn-primary" href="/profile" role="button">Profile</a>
-            <!-- <button href="/login" class="btn btn-outline-dark" type="submit">Login</button> -->
-            <!-- <button href="/signup" class="btn btn-dark" type="submit">Sign up</button> -->
-          </div>
-        
-        
-      </nav>
-      
-      <!-- <div class="text-center">
-        <h1 class=""><a href="/profile">Binary Upload Boom</a></h1>
-        <span>The #100Devs Social Network</span>
-      </div> -->
-    
+            ></li>
+            <li tabindex="0">
+              <a>
+                Explore
+                <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
+              </a>
+              <ul class="p-2 bg-base-100">
+                <li><a class="nav-link text-xl " href="/profile#post">Post 7-5-3-1</a></li>
+                <li><a class="nav-link text-xl mr-5" href="/profile">My Posts</a></li>
+                <li><a class="nav-link text-xl mr-1" aria-current="page" href="/feed">Explore</a></li>
+                <li><a href="/logout" class="btn btn-active btn-primary" role="button">Logout</a></li>
+              </ul>
+            </li>
+           
+          </ul>
+        </div>
+      </div>
 
