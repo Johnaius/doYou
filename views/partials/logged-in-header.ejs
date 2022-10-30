@@ -51,20 +51,21 @@
           <a class="btn btn-ghost normal-case text-xl" href="/feed"><img src="/imgs/doyou.png" alt="" width="110" height="110" /></a>
         </div>
         <div class="flex-none">
-          <ul class="menu menu-horizontal p-0">
-            <li>  <span class="navbar-text text-white text-xl mr-12"
-              >Hello, <%= user.userName %>!</span
-            ></li>
-            <li tabindex="0" class="mr-4">
+          <ul class="menu menu-horizontal p-0 mr-20">
+           
+            <li tabindex="0" class="mr-12">
               <a>
                 Explore
                 <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
+              
               </a>
-              <ul class="p-2 bg-base-100 mr-5">
+              <ul class="p-2 bg-base-100">
+                <li>  <span class="navbar-text text-white text-xl mr-12"
+                  >Hello, <%= user.userName %>!</span></li>
                 <li><a class="nav-link text-xl " href="/profile#post">Post 7-5-3-1</a></li>
                 <li><a class="nav-link text-xl mr-5" href="/profile">My Posts</a></li>
                 <li><a class="nav-link text-xl mr-1" aria-current="page" href="/feed">Explore</a></li>
-                <li><a href="/logout" class="btn btn-active btn-primary" role="button">Logout</a></li>
+                <li><a href="/logout" class="btn btn-active btn-primary mr-5" role="button">Logout</a></li>
               </ul>
             </li>
            
