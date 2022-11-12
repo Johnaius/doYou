@@ -46,11 +46,11 @@
 
 <div class="container mx-auto px-4 py-100  ">
   <p> <%= user.userName %>'s Posts</p>
-  <div class="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 flex-column" > 
+  <div class="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 flex-column " > 
       <% for(var i=0; i<posts.length; i++) {%>
-        <a href="/post/<%= posts[i]._id%>">
-    <div class="rounded-lg overflow-hidden shadow-lg">
-      <img class="h-20 object-cover" src="<%= posts[i].image%>"  alt="">
+        <a href="/post/<%= posts[i]._id%>" class="place-item-stretch">
+    <div class="rounded-lg overflow-hidden shadow-lg ">
+      <img class="h-20 object-fill" src="<%= posts[i].image%>"  alt="">
       <div class="px-6 py-4">
         <div class="font-bold text-2xs mb-2 flex-1 w-fit"><%= posts[i].one %></div>
         <p class="text-gray-700 text-base">
