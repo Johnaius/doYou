@@ -776,7 +776,11 @@ select {
 .bg-texture {
     background-color: #D1DBD4;
     background-image: url("https://www.transparenttextures.com/patterns/dark-mosaic.png");
+}
 
+.bg-texture1 {
+    background-color: #a5b4aa;
+    background-image: url("https://www.transparenttextures.com/patterns/egg-shell.png");
 }
 
 .bg-head {

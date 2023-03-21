@@ -1,21 +1,28 @@
+
 <%- include('partials/logged-in-header') -%>
-<div class="container mx-auto px-4 py-10">
-  <h1 class="text-4xl text-center font-bold mb-8">Explore doYou's</h1>
-  <hr class="border-2 border-gray-400 mb-12">
-  <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 lg:gap-24 gap-6">
-    <% for(var i=0; i<posts.length; i++) {%>
-      <a href="/post/<%= posts[i]._id%>" class="block">
-        <div class="rounded-lg overflow-hidden shadow-lg">
-          <img class="w-full h-48 object-cover" src="<%= posts[i].image%>" alt="">
-          <div class="px-6 py-4">
-            <div class="text-xl font-bold mb-2"><%= posts[i].one %></div>
-            <p class="text-gray-700 text-base">
-              <%= posts[i].createdAt.toLocaleDateString() %>
-            </p>
+
+<div class="bg-textbox"style="
+padding-right: 50px;
+padding-left: 50px;"
+>
+  <h1 class="mb-1 flex justify-content-center bg-textbox text-2xl sm:pl-10" style="
+  padding-top: 70px;"
+>Explore doYou's</h1>
+    <div class="divider" ></div> 
+<div class="mx-auto grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 lg:gap-24 gap-6 flex-column col-10 ">
+        <% for(var i=0; i<posts.length; i++) {%>
+          <a href="/post/<%= posts[i]._id%>" class="place-item-stretch">
+            <div class="rounded-lg overflow-hidden shadow-lg ">
+              <img class="card-img-top h-60 w-full object-cover object-center" src="<%= posts[i].image%>"  alt="">
+              <div class="px-6 py-4 bg-texture1">
+                <div class="text-xl font-bold mb-2"><%= posts[i].one %></div>
+                <p class="text-gray-700 text-base">
+                  <%= posts[i].createdAt.toLocaleDateString() %>
+                </p>
+              </div>
+            </div>
+                </a>
+                <% } %>
           </div>
-        </div>
-      </a>
-    <% } %>
-  </div>
-</div>
+          </div>
 <%- include('partials/footer') -%>
