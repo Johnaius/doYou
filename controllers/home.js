@@ -5,5 +5,8 @@ module.exports = {
   getAbout: (req, res) => {
     res.render("about.ejs");
   },
+  get7531: (req, res) => {
+    res.render("7531.ejs");
+  },
 };
 
