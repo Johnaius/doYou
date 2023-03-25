@@ -2,12 +2,13 @@
 module.exports = {
   content: ["./views/**/*.ejs", "public/js/*.js"],
   theme: {
-    extend: {
-      colors: {},
+      colors: {
+        'purp': '#632b6c'
+        
+      },
     },
-  },
   daisyui: {
-    themes: ["luxury"],
+    themes: ["retro", ],
   },
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
 };

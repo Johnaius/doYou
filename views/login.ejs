@@ -1,6 +1,6 @@
 <%- include('partials/header') -%>
 
-<main class="container bg-base-200" data-theme="dark" >
+<main class="container "  >
   <div class="row justify-content-center mt-5">
     <section class="col-6 mt-5 ">
       <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
@@ -9,30 +9,36 @@
       messages.info.forEach( el => { %>
       <div class="alert alert-info"><%= el.msg %></div>
       <% }) %> <% } %>
-      <form action="/login" method="POST" class="fade-in">
-        <div class="mb-3 mt-5 ">
-          <label for="exampleInputEmail1" class="form-label mt-5 "
-            >Email address</label
-          >
-          <input
-            type="email"
-            class="form-control block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 bg-transparent text-white"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            name="email"
-          />
+ 
+
+
+<section class="w-full lg:w-6/12 2xl:w-5/12 mx-auto">
+    <h1 class="my-5 text-2xl text-slate-500">Login</h1>
+
+ 
+
+    <form action="/login" method="POST" class="space-y-5">
+        <div>
+            <label for="email" class="block text-md font-medium">Email</label>
+            <div class="mt-2">
+                <input type="email" name="email" id="email" class="block w-full border-gray-800 rounded-md shadow-sm focus:border-teal focus:ring-coral sm:text-md" required>
+            </div>
         </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input
-            type="password"
-            class="form-control block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 bg-transparent text-white"
-            id="exampleInputPassword1"
-            name="password"
-          />
+        <div>
+            <label for="password" class="block text-md font-medium  ">Password</label>
+            <div class="mt-2">
+                <input type="password" name="password" id="password" class="block w-full border-gray-300 rounded-md shadow-sm focus:border-coral focus:ring-coral sm:text-sm" required>
+            </div>
         </div>
-        <button type="submit" class="btn btn-active btn-primary">Submit</button>
-      </form>
+        <div>
+            <button type="submit" class="flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-teal-600 hover:bg-coral-dark focus:outline-none focus:ring-2 focus:ring-coral focus:ring-offset-2 btn btn-secondary">Log in</button>
+        </div>
+        <div>
+            <small>No account? Create a free one by <a href="/sign-up" class="text-teal">signing up</a>.</small>
+        </div>
+    </form>
+</section>
+
     </section>
   </div>
 </main>
