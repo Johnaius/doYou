@@ -1,0 +1,66 @@
+<%- include('partials/headerMood.ejs') %>
+<div class="flex flex-col justify-center items-center">
+
+	<section class="w-[294px] self-center">
+		<span class="font-bold text-xl">Daily Check In</span>
+	</section>
+	<section class="flex w-[294px] self-center mb-3">
+		<a href="/dashboard" class="buttonStyle text-center block text-l text-white font-bold bg-buttonBg w-[130px] py-1 shadow-button my-5 ml-auto">cancel</a>
+	</section>
+
+	<% if (locals.messages.errors) { %>
+        <% messages.errors.forEach( el=> { %>
+            <div class="flex w-full justify-center items-center mb-3">
+                <%= el.msg %>
+            </div>
+        <% }) %>
+    <% } %>
+
+	<form
+		action="/checkin/newcheckin"
+		method="POST"
+		class="flex w-[294px] flex-col gap-5 justify-start items-start pb-5"
+
+		<!-- date -->
+		<input
+			type="date"
+			name="date"
+			id="date"
+			max=""
+			value=""
+			class="flex border border-mainTextColor w-full"
+		/>
+
+		<!-- dropdown menu  -->
+		<select
+			name="scaleNumber"
+			class="flex w-full border border-mainTextColor font-fontAwesome"
+		>
+			<option class="text-mainTextColor text-center">--How are you feeling?--</option>
+			<option value="1">1 - &#128516 I feel great today!</option>
+			<option value="2">2 - &#128522 I feel good today!</option>
+			<option value="3">3 - &#128528 I feel okay today.</option>
+			<option value="4">4 - &#128532 I feel bad today.</option>
+			<option value="5">5 - &#128557 I feel terrible today.</option>
+		</select>
+
+		<!-- quick note: 140 characters  -->
+		<textarea
+			label="Add a quick note about your selection"
+			placeholder="Add a quick note about your selection"
+			maxlength="140"
+			name="note"
+			rows="5"
+			class="flex w-full min-w-max resize-none text-mainTextColor border border-mainTextColor"
+		></textarea>
+
+		<!-- submit checkin -->
+		<button
+			class="block text-l text-white font-bold bg-buttonBg w-[130px] py-1 shadow-button mx-auto"
+		>
+			submit
+		</button>
+	</form>
+	
+</div>
+<%- include('partials/footerMood.ejs') %>

@@ -2,55 +2,28 @@
 <%- include('partials/logged-in-header') -%>
 
 
-          <div class="mt-24">
-              <p class="mt-11"><strong>User Name</strong>: <%= user.userName %></p>
-              <p class="mb-2"><strong>Email</strong>: <%= user.email %></p>
+          <div class="mt-16  ">
+            <div class="divider" ></div> 
+              <p class="mt-2"><strong>User Name</strong>: <%= user.userName %></p>
+              <p class="mb-8"><strong>Email</strong>: <%= user.email %></p>
            
               <!-- <a href="/logout" class="col-3 btn btn-primary">Logout</a> -->
+              <div class="btn-group mb-2 ">
+                <button class="btn btn-primary mr-1 btn-sm" href="#post">Create Post</button>
+                <a role="button" class="btn btn-primary mr-1 btn-sm" href="/feed">Explore</a>
+                <button class="btn btn-primary btn-sm">Mood Tracker</button>
+              </div>
           </div>
-          <a class="btn btn-active btn-primary float-right mb-2" href="#post" role="button">Make A Post</a>
-               <!-- <div class="col-6">
-        <ul class="row list-unstyled">
-        <% for(var i=0; i<posts.length; i++) {%>
-          <li class="col-6 justify-content-between mt-5">
-            <a href="/post/<%= posts[i]._id%>">
-              <img class="img-fluid" src="<%= posts[i].image%>">
-            </a>
-          </li>
-        <% } %>
-        </ul>
-        </div> -->
-        
-
-        <!-- <section class="">
-        <div class="flex flex-wrap m-2">        
-          <div class="p-2 lg:w-full md:w-1/2 w-full sm:w-full">           
-            <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-              <ul class="row list-unstyled">
-                <p> <%= user.userName %>'s Posts</p>
-                <% for(var i=0; i<posts.length; i++) {%>
-                  <li class="col-sm-2 justify-content-between mt-2">
-                    <a href="/post/<%= posts[i]._id%>">
-                      <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-2" src="<%= posts[i].image%>">
-                        <div class="flex-grow">
-                          <h2 class="text-gray-900 title-font font-medium"><%= posts[i].createdAt.toLocaleDateString() %></h2>
-                            <p class="text-gray-500"><%= posts[i].one %></p>
-                        </div>
-                    </a>
-                  </li>
-                  <% } %>
-               </ul>
-            </div>
-          </div>
-</div></section> -->
-
+          <!-- <a class="btn btn-primary mb-5" href="#ppost" type="button">Create Post</a> -->
+           
 <div class="container mx-auto px-4 py-100  ">
-  <p> <%= user.userName %>'s Posts</p>
-  <div class="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 flex-column " > 
+  <p class="mb-1 flex justify-content-center">  Your Posts</p>
+  <div class="divider" ></div> 
+  <div class="mx-auto grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 lg:gap-24 gap-6 flex-column col-10 " > 
       <% for(var i=0; i<posts.length; i++) {%>
         <a href="/post/<%= posts[i]._id%>" class="place-item-stretch">
     <div class="rounded-lg overflow-hidden shadow-lg ">
-      <img class="h-20 object-fill" src="<%= posts[i].image%>"  alt="">
+      <img class="card-img-top h-60 w-full object-cover object-center" src="<%= posts[i].image%>"  alt="">
       <div class="px-6 py-4">
         <div class="font-bold text-2xs mb-2 flex-1 w-fit"><%= posts[i].one %></div>
         <p class="text-gray-700 text-base">
@@ -63,13 +36,13 @@
   </div>
   </div>
 
-          <div class="divider" id="post"></div> 
+          <div class="divider" ></div> 
       
         <div class="container card-container" >
           <div class="row justify-content-center mb-5 min-h-screen" >
-              <div class="col-12">
+              <div class="col-6">
           <div class="">
-            <h2 class="text-3xl" >Add a post</h2>
+            <h2 class="text-3xl" id="post">Add a post</h2>
             <p>Be sure to add multiple items on seperate lines</p>
           </br>
             <form action="/post/createPost" enctype="multipart/form-data" method="POST">

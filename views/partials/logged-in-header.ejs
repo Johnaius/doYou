@@ -42,10 +42,10 @@
       type="text/css"
     />
   </head>
-  <body class="d-flex h-100 bg-base-200" data-theme="dark">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <div class="navbar bg-base-200 z-10 flex-row justify-content-between">
-        <div class="flex-1">
+  <body class="d-flex container-fluid" data-theme="dark">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column ">
+      <div class="navbar z-10 flex-row justify-content-between" >
+        <div class="flex-1 ">
           <a class= "normal-case text-xl" href="/feed"><img src="/imgs/doyou.png" alt="" width="110" height="110" /></a>
         </div>
         <div class="flex-none">
@@ -55,13 +55,13 @@
                 <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
                 Explore
               </a>
-              <ul class="p-2 bg-base-100">
-                <li>  <span class="navbar-text text-white text-xl mr-12"
+              <ul class="p-2 bg-base-300">
+                <li>  <span class="navbar-text text-white text-md mr-12"
                   >Hello, <%= user.userName %>!</span></li>
-                  <li><a class="nav-link text-xl " href="/about">About</a></li>
-                  <li><a class="nav-link text-xl " href="/profile#post">Post 7-5-3-1</a></li>
-                <li><a class="nav-link text-xl mr-5" href="/profile">My Posts</a></li>
-                <li><a class="nav-link text-xl mr-1" aria-current="page" href="/feed">Explore</a></li>
+                  <li><a class="nav-link text-md " href="/about">About</a></li>
+                  <li><a class="nav-link text-md " href="/profile#post">Post 7-5-3-1</a></li>
+                <li><a class="nav-link text-md mr-5" href="/profile">Dashboard</a></li>
+                <li><a class="nav-link text-md mr-1" aria-current="page" href="/feed">Explore</a></li>
                 <li><a href="/logout" class="btn btn-active btn-primary mr-5" role="button">Logout</a></li>
               </ul>
             </li>

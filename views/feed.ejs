@@ -1,22 +1,24 @@
 <%- include('partials/logged-in-header') -%>
 
-<div class="container card-container">
-  <h1 class="text-4xl mb-8  ">Explore doYou's</h1>
-<div class="row row-cols-1 row-cols-md-3 g-4">
+<div class="container mx-auto px-4 py-100 ">
+  <p class="mb-1 flex justify-content-center mt-100 pt-75 " style="
+  margin-top: 100px;"
+>Explore doYou's</h1>
+    <div class="divider" ></div> 
+<div class="mx-auto grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 lg:gap-24 gap-6 flex-column col-10 ">
         <% for(var i=0; i<posts.length; i++) {%>
-          <div class="col"data-theme="dark">
-            <div class="card h-100 relative h-80 w-full overflow-hidden rounded-lg bg-white group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-2" data-theme="dark">
-              <img src="<%= posts[i].image%>" class="card-img-top h-60 w-full object-cover object-center" alt="...">
-              <div class="card-body py-1" data-theme="dark">
-                <h5 class="card-title"><%= posts[i].title%></h5>
-                <!-- <p class="card-text"><i class="px-1 bi bi-heart"></i><%= posts[i].likes.length - 1 %></p> -->
-                <p class="card-text"><%= posts[i].one %></p>
-                <p class="card-text"><small class="text-muted">By: <%= userName[i]%></small></p>
-                <a href="/post/<%= posts[i]._id%>" class="btn btn-outline btn-primary mb-2">View 7-5-3-1</a>
+          <a href="/post/<%= posts[i]._id%>" class="place-item-stretch">
+            <div class="rounded-lg overflow-hidden shadow-lg ">
+              <img class="card-img-top h-60 w-full object-cover object-center" src="<%= posts[i].image%>"  alt="">
+              <div class="px-6 py-4">
+                <div class="font-bold text-2xs mb-2 flex-1 w-fit"><%= posts[i].one %></div>
+                <p class="text-gray-700 text-base">
+                  <%= posts[i].createdAt.toLocaleDateString() %>
+                </p>
               </div>
             </div>
+                </a>
+                <% } %>
           </div>
-          <% } %>
-        </div>
-      </div>
+          </div>
 <%- include('partials/footer') -%>
