@@ -19,4 +19,5 @@ function colorClass(n) {
       div.classList.add('bg-bgColor')
       break;
   }
-}
+};
+
