@@ -12,7 +12,7 @@
   </div>
 </div>
 
-<div class="container mx-auto px-4 py-10">
+<div class="container mx-auto px-4">
   <p class="mb-1 text-center font-bold">Your Posts</p>
   <div class="divider"></div>
   <div id="post-carousel" class="mx-auto grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 lg:gap-24 gap-6 col-10 shadow">
@@ -20,7 +20,7 @@
       <a href="/post/<%= posts[i]._id%>" class="place-item-stretch">
         <div class="rounded-lg overflow-hidden shadow-lg">
           <img class="card-img-top h-60 w-full object-cover object-center" src="<%= posts[i].image%>" alt="">
-          <div class="px-6  bg-texture1">
+          <div class="px-6 bg-texture1">
             <div class="font-bold text-xs mb-2"><%= posts[i].one %></div>
             <p class="text-gray-700 text-base">
               <%= posts[i].createdAt.toLocaleDateString() %>
