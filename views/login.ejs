@@ -1,22 +1,17 @@
 <%- include('partials/header') -%>
 
 <main class="container "  >
-  <div class="row justify-content-center mt-5">
-    <section class="col-6 mt-5 ">
+  <div class="row justify-content-center">
+    <section class="col-6 mt-24 ">
       <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
       <div class="alert alert-danger mt-5"><%= el.msg %></div>
       <% }) %> <% } %> <% if (locals.messages.info) { %> <%
       messages.info.forEach( el => { %>
       <div class="alert alert-info"><%= el.msg %></div>
       <% }) %> <% } %>
- 
 
-
-<section class="w-full lg:w-6/12 2xl:w-5/12 mx-auto">
-    <h1 class="my-5 text-2xl text-slate-500">Login</h1>
-
- 
-
+<section class="w-full lg:w-6/12 2xl:w-5/12 mx-auto mt-5">
+    <h1 class="my-5 text-2xl text-slate-500 ">Login</h1>
     <form action="/login" method="POST" class="space-y-5">
         <div>
             <label for="email" class="block text-md font-medium">Email</label>
@@ -31,7 +26,7 @@
             </div>
         </div>
         <div>
-            <button type="submit" class="flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-teal-600 hover:bg-coral-dark focus:outline-none focus:ring-2 focus:ring-coral focus:ring-offset-2 btn btn-secondary">Log in</button>
+            <button type="submit" class="flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-gray-800 hover:bg-coral-dark  btn btn-secondary">Log in</button>
         </div>
         <div>
             <small>No account? Create a free one by <a href="/sign-up" class="text-teal">signing up</a>.</small>
