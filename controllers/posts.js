@@ -2,12 +2,16 @@ const cloudinary = require("../middleware/cloudinary");
 const Post = require("../models/Post");
 const Comment = require("../models/Comment");
 const User = require("../models/User");
+const Checkin = require('../models/Checkin');
+const moment = require('moment');
 
 module.exports = {
   getProfile: async (req, res) => {
+    let today = moment.utc().format('YYYY-MM-DD')
+      const myCheckins = await Checkin.find({ createdById: req.user.id }).sort({ date: "desc" }).lean();
     try {
       const posts = await Post.find({ user: req.user.id });
-      res.render("profile.ejs", { posts: posts, user: req.user  });
+      res.render("profile.ejs", { posts: posts, user: req.user, checkin: myCheckins, user: req.user, moment:moment  });
     } catch (err) {
       console.log(err);
     }
