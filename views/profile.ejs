@@ -38,7 +38,7 @@
 <div class="divider bg-textbox m-0 "></div>
 <div class="divider bg-textbox m-0"></div>
 
-<section class=" bg-texture1 px-4 py-4 lg:flex lg:gap-6 lg:flex flex-cols col-10 mx-auto">
+<section class=" bg-texture1 px-4 py-4 lg:grid  mx-auto w-full">
     <div class="mb-10">
         <a href="/profile">
         <h1 class='text-2xl font-bold text-center pt-8'>Latest Meditations</h1>
@@ -52,7 +52,7 @@
         <a role="button" class="btn mr-2 btn-sm text-white shadow-button" href="/add-exercise">Add Meditation</a>
         <!-- <a role="button" class="btn mr-2 btn-sm text-white" href="/dashboard">Mood Tracker</a> -->
       </div>
-    <section class="lg:w-1/2">
+    <section class="lg:w- grid grid-rows-2">
         <% if(latest != "") {%>
             <% latest.forEach(exercise => {%>
                 <a href="/exercises/<%= exercise._id %>">
