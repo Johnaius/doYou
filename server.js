@@ -15,10 +15,28 @@ const postRoutes = require("./routes/posts");
 const commentRoutes = require("./routes/comments");
 // const authRoutes = require('./routes/authRoutes.js');
 const exerciseRoutes = require('./routes/exerciseRoutes.js')
-
+var path = require('path');
 const port = process.env.PORT || 8000;
 
-//Use .env file in config folder
+//bootstrap
+app.use(express.static(path.join(_dirname, 'node_modules/bootstrap/dist/css')))
+app.use(express.static(path.join(_dirname, 'node_modules/bootstrap/dist/js')))
+app.use( express.static(path.join(_dirname, 'node_modules/jquery/dist')))
+app.use( express.static(path.join(_dirname, 'node_modules/bootstrap/dist/css')))
+app.use('../assets/vendor/bootstrap-icons', express.static(path.join(_dirname, '../assets/vendor/bootstrap-icons')))
+app.use(express.static(path.join(_dirname,'node_modules/jquery/dist')))
+app.use(express.static(path.join(_dirname,'../assets')));
+app.use(express.static(path.join(_dirname,'node_modules/bootstrap/dist/js')))
+app.use(express.static(path.join(_dirname,'./assets/vendor/glightbox/js')));
+app.use( express.static(path.join(_dirname,'../assets/vendor/aos')));
+app.use( express.static(path.join(_dirname,'../assets/purecounter')));
+app.use( express.static(path.join(_dirname,'../assets/vendor/swiper')));
+app.use( express.static(path.join(_dirname,'../assets/isotope-layout')));
+app.use( express.static(path.join(_dirname,'../assets/php-email-form')));
+app.use( express.static(path.join(_dirname,'../assets/js')));
+app.use( express.static(path.join(_dirname,'../assets/vendor/bootstrap-icons')));
+app.use(express.static(path.join(_dirname,'../assets/css')));
+app.use(express.static(path.join(_dirname,'../assets/img')));
 require("dotenv").config({ path: "./config/.env" });
 
 // Passport config
