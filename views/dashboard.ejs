@@ -1,7 +1,7 @@
 <%- include('partials/headerMood.ejs') %>
 
 
-    <section class="w-[294px] self-center">
+    <section class="w-[294px] self-center bg-textbox">
         <!-- Greet user -->
         <!-- <span class="font-bold text-xl">Hello, <%= user.userName %>!</span> -->
     </section>
@@ -14,8 +14,8 @@
     <% if (checkin.length===0) { %>
         <p class="self-center mb-3">Check in to get started.</p>
     <% } %>
-
-    <section class="container flex flex-wrap w-[294px] mx-auto">
+    <div class="flex justify-content-center bg-textbox">
+    <section class=" flex flex-wrap w-[294px] bg-textbox">
         <!-- Renders available check ins -->
         <% for (let i=0; i < checkin.length; i++) { %>
             <% if (checkin[i].scaleNumber===5) { %>
@@ -138,7 +138,7 @@
         <% } %>
 
     </section>
-
+</div>
             <!-- Calculate number of days for each mood and display -->
 
     <% let great=0 %>
@@ -160,9 +160,9 @@
             <% terrible +=1 %>
         <% } %>
     <% } %>
-
+    <div class="flex justify-content-center bg-textbox">
     <section
-        class="flex flex-col w-[294px] mx-auto mt-5">
+        class="flex flex-col w-[294px] bg-textbox ">
         <section
             class="flex flex-row items-center">
             <div
@@ -174,7 +174,7 @@
                     day(s)</span>
         </section>
         <section
-            class="flex flex-row items-center">
+            class="flex flex-row items-center bg-textbox ">
             <div
                 class="flex h-8 w-8 border border-gridBorder bg-moodOrange">
             </div>
@@ -194,7 +194,7 @@
                     day(s)</span>
         </section>
         <section
-            class="flex flex-row items-center">
+            class="flex flex-row items-center ">
             <div
                 class="flex h-8 w-8 border border-gridBorder bg-moodPurple">
             </div>
@@ -215,12 +215,14 @@
                     day(s)</span>
         </section>
     </section>
-
+</div>
     <section clas="bg-textbox">
         <!-- logout button -->
-        <a href="/logout" class="buttonStyle text-center block text-l text-white font-bold bg-buttonBg w-[130px] py-1 shadow-button  mx-auto">logout</a>
+        <div class="flex justify-content-center bg-textbox">
+        <a href="/logout" class="buttonStyle text-center block text-l text-white font-bold bg-buttonBg w-[130px] py-1 shadow-button">logout</a>
+        </div>
     </section>
 
     <%- include('partials/footerMood.ejs') %>
     
-    <script src="../main.js"></script>
+   

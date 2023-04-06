@@ -556,9 +556,9 @@ video {
   --tw-backdrop-sepia: ;
 }
 
-.container {
+/* .container {
   width: 100%;
-}
+} */
 
 @media (min-width: 640px) {
   .container {
@@ -1057,4 +1057,8 @@ video {
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
+}
+
+body {
+  height: 100%
 }
