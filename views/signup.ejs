@@ -1,39 +1,38 @@
 <%- include('partials/header') -%>
-    <main class="container card-container">
-        <div class="row justify-content-center">
-            <section class="col-8">
-                <% if (locals.messages.errors) { %>
-                    <% messages.errors.forEach( el => { %>
-                        <div class="alert alert-danger"><%= el.msg %></div>
-                    <% }) %>    
-                <% } %>
-                <% if (locals.messages.info) { %>
-                    <% messages.info.forEach( el => { %>
-                        <div class="alert alert-info"><%= el.msg %></div>
-                    <% }) %>    
-                <% } %>
-                <form action="/signup" method="POST"class="fade-in">
-                    <div class="mb-3">
-                        <label for="userName" class="form-label">User Name</label>
-                        <input type="text" class="form-control rounded-pill bg-transparent text-white" id="userName" name="userName">
-                      </div>
-                    <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Email address</label>
-                      <input type="email" class="form-control rounded-pill bg-transparent text-white" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
-                      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                    </div>
-                    <div class="mb-3">
-                      <label for="password" class="form-label">Password</label>
-                      <input type="password" class="form-control rounded-pill bg-transparent text-white" id="password" name="password">
-                    </div>
-                    <div class="mb-3">
-                        <label for="confirmPassword" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control rounded-pill bg-transparent text-white" id="confirmPassword" name="confirmPassword">
-                      </div>
-                    <button type="submit" class="btn btn-primary rounded-pill">Create my account</button>
-                  </form>
-            </section>
-        </div>
-    </main>
-
+<main class="px-5 bg-textbox" style=" font-family: 'Montserrat', sans-serif;">
+  <div class="row justify-content-center py-20">
+      <section class="col-lg-8">
+          <% if (locals.messages.errors) { %>
+              <% messages.errors.forEach( el => { %>
+                  <div class="alert alert-danger"><%= el.msg %></div>
+              <% }) %>    
+          <% } %>
+          <% if (locals.messages.info) { %>
+              <% messages.info.forEach( el => { %>
+                  <div class="alert alert-info"><%= el.msg %></div>
+              <% }) %>    
+          <% } %>
+          <form action="/signup" method="POST" class="fade-in">
+              <div class="mb-3">
+                  <label for="userName" class="form-label" style="font-size: 1.2rem;">User Name</label>
+                  <input type="text" class="block w-full border-gray-800 rounded-md shadow-sm focus:border-teal focus:ring-coral sm:text-md" id="userName" name="userName" >
+                </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label" style="font-size: 1.2rem;">Email address</label>
+                <input type="email" class="block w-full border-gray-800 rounded-md shadow-sm focus:border-teal focus:ring-coral sm:text-md" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" style=>
+                <div id="emailHelp" class="form-text" style="color:black">We'll never share your email with anyone else.</div>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label" style="font-size: 1.2rem;">Password</label>
+                <input type="password" class="block w-full border-gray-800 rounded-md shadow-sm focus:border-teal focus:ring-coral sm:text-md" id="password" name="password" >
+              </div>
+              <div class="mb-5">
+                  <label for="confirmPassword" class="form-label" style="font-size: 1.2rem;">Confirm Password</label>
+                  <input type="password" class="block w-full border-gray-800 rounded-md shadow-sm focus:border-teal focus:ring-coral sm:text-md" id="confirmPassword" name="confirmPassword" style=>
+                </div>
+              <button type="submit" class="ml-auto text-white bg-gray-800 hover:bg-coral-dark py-2 px-4 rounded-full shadow font-bold btn-sm">Create my account</button>
+            </form>
+      </section>
+  </div>
+</main>
 <%- include('partials/footer') -%>
