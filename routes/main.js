@@ -5,6 +5,7 @@ const homeController = require("../controllers/home");
 const postsController = require("../controllers/posts");
 const dashboardController = require('../controllers/dashboard')
 const checkinController = require("../controllers/checkin")
+const exerciseController = require('../controllers/exerciseController')
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 
@@ -22,5 +23,6 @@ router.post("/signup", authController.postSignup);
 router.get("/dashboard", ensureAuth, dashboardController.getDashboard)
 router.get("/checkin", checkinController.getCheckin)
 router.post("/checkin/newcheckin", checkinController.addCheckin)
+router.get('/remind', exerciseController.getExercise)
 
 module.exports = router;

@@ -1,0 +1,147 @@
+require('../database/connectDB')
+const Exercise = require("../models/Exercise");
+const { generateExerciseVideoThumbnail } = require("../utils/generateYoutubeThumbnail");
+
+module.exports = {
+    getExercise: async (req, res) => {
+        try {
+            const limitNumber = 1
+            let latest = await Exercise.find({}).sort({ _id: -1 }).limit(limitNumber)
+
+            if (latest.length > 0) {
+                const embedVideoUrl = latest[0].videoURL.replace("watch?v=", "embed/");
+                latest[0].videoURL = embedVideoUrl
+            }
+
+            res.render('remind.ejs', { title: "Remind Exercise - Home", latest, user: req.user })
+        } catch (error) {
+            console.error(error);
+            res.render("error", { message: error.message });
+        }
+    },
+    markFavorite: async (req, res) => {
+        try {
+            const exercise = await Exercise.findById(req.body.exerciseId);
+            const updatedExercise = await Exercise.findByIdAndUpdate({ _id: req.body.exerciseId }, {
+                isFavorite: !exercise.isFavorite
+            }, { new: true });
+
+            res.json(updatedExercise);
+        } catch (err) {
+            console.log(err)
+        }
+    },
+    markComplete: async (req, res) => {
+        try {
+            const exercise = await Exercise.findById(req.body.exerciseId);
+            const updatedExercise = await Exercise.findByIdAndUpdate({ _id: req.body.exerciseId }, {
+                isComplete: !exercise.isComplete
+            }, { new: true });
+
+            console.log(updatedExercise);
+
+            res.json(updatedExercise);
+        } catch (err) {
+            console.log(err)
+        }
+    },
+    favoritesPage: async (req, res) => {
+        try {
+            const favorites = await Exercise.find({
+                isFavorite: true
+            });
+
+            const favoritesWithThumbnails = generateExerciseVideoThumbnail(favorites);
+
+            const noFavorites = favorites.length === 0;
+
+            res.render("favorite", { favorites: favoritesWithThumbnails, noFavorites, user: req.user });
+        } catch (error) {
+            console.error(error);
+        }
+    },
+    completedPage: async (req, res) => {
+        try {
+            const completed = await Exercise.find({
+                isComplete: true
+            });
+
+            const completedWithThumbnails = generateExerciseVideoThumbnail(completed);
+
+            const noCompleted = completed.length === 0;
+
+            res.render("completed", { completed: completedWithThumbnails, noCompleted, user: req.user });
+        } catch (error) {
+            console.error(error);
+        }
+    },
+    exerciseDetails: async (req, res) => {
+        try {
+            const exercise = await Exercise.findById(req.params.id);
+
+            const embedVideoUrl = exercise.videoURL.replace("watch?v=", "embed/");
+            exercise.videoURL = embedVideoUrl;
+
+            res.render("exercise", { exercise, user: req.user });
+        } catch (error) {
+            console.error(error);
+        }
+    },
+    exercisesPage: async (req, res) => {
+        try {
+            const exercises = await Exercise.find();
+
+            const exercisesWithThumbnails = generateExerciseVideoThumbnail(exercises);
+
+            const noExercises = exercises.length === 0;
+
+            res.render("exercises", { exercises: exercisesWithThumbnails, noExercises, user: req.user });
+        } catch (error) {
+            console.error(error);
+        }
+    },
+    addExercisePage: (req, res) => {
+        res.render("add-exercise", { success: null, message: null });
+    },
+    addVideo: async (req, res) => {
+        const infoErrorsObj = req.flash("infoErrors")
+        const infoSubmitObj = req.flash("infoSubmit")
+        res.render('add-video', { title: "Remind Exercise - Add a Video", infoErrorsObj, infoSubmitObj })
+    },
+    addVideoOnPost: async (req, res) => {
+        try {
+            let {
+                title,
+                videoURL,
+                description
+            } = req.body;
+
+            videoURL = videoURL.split('&')[0]
+
+            const SubmittedVideoUrlExists = await Exercise.findOne({
+                videoURL
+            });
+
+            if (SubmittedVideoUrlExists) {
+                res.render("add-exercise", { success: false, message: "An exercise with that video url already exists." })
+                return;
+            }
+
+            const newExercise = {
+                title,
+                videoURL,
+                description,
+                user:req.user.id
+            }
+            const createdExercise = await Exercise.create(newExercise);
+            res.redirect('/exercises/' + createdExercise._id);
+        } catch (error) {
+            if (error.name === "ValidationError") {
+                res.render("add-exercise", { success: false, message: error.message })
+            } else {
+                console.error(error);
+                res.render("add-exercise", { success: false, message: "Server Error" });
+            }
+        }
+    }
+}

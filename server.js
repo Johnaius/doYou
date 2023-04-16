@@ -7,10 +7,16 @@ const MongoStore = require("connect-mongo")(session);
 const methodOverride = require("method-override");
 const flash = require("express-flash");
 const logger = require("morgan");
+const cors = require('cors')
+const cookieParser = require('cookie-parser')
 const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const postRoutes = require("./routes/posts");
 const commentRoutes = require("./routes/comments");
+// const authRoutes = require('./routes/authRoutes.js');
+const exerciseRoutes = require('./routes/exerciseRoutes.js')
+
+const port = process.env.PORT || 8000;
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
@@ -37,6 +43,10 @@ app.use(logger("dev"));
 //Use forms for put / delete
 app.use(methodOverride("_method"));
 
+// middleware to save data and cookie sessions
+app.use(cookieParser('RemindDatabaseSecure'))
+app.use(cors())
+
 // Setup Sessions - stored in MongoDB
 app.use(
   session({
@@ -58,9 +68,11 @@ app.use(flash());
 app.use("/", mainRoutes);
 app.use("/post", postRoutes);
 app.use("/comment", commentRoutes);
+// app.use("/auth", authRoutes);
+app.use("/exerciseRoutes", exerciseRoutes);
 
 //Server Running
-let port = process.env.PORT || 8000;
+
 app.listen(port, () => {
   console.log("Server is running, you better catch it!");
 });

@@ -5,16 +5,16 @@
 padding: 50px"
 >
   <h1 class="mb-1 flex justify-center bg-textbox text-2xl sm:pl-10" style="
-  padding-top: 20px;"
+  padding-top: 36px;"
 >Expressed Gratitude</h1>
 <p></p>
 <div class="flex justify-center my-5">
-  <a role="button" class="btn mr-2 btn-sm text-white" href="/7531">Express Yours</a>
+  <a role="button" class="btn mr-2 btn-sm text-white shadow-button" href="/7531">Express Yours</a>
   </div>
     <div class="divider" ></div> 
 <div class="mx-auto grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 lg:gap-24 gap-6 flex-column col-10 ">
         <% for(var i=0; i<posts.length; i++) {%>
-          <a href="/post/<%= posts[i]._id%>" class="place-item-stretch">
+          <a href="/post/<%= posts[i]._id%>" class="place-item-stretch shadow=2xl">
             <div class="rounded-lg overflow-hidden shadow-lg ">
               <img class="card-img-top h-60 w-full object-cover object-center" src="<%= posts[i].image%>"  alt="">
               <div class="px-6 py-4 bg-texture1">
