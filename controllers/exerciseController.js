@@ -3,7 +3,7 @@ const Exercise = require("../models/Exercise");
 const { generateExerciseVideoThumbnail } = require("../utils/generateYoutubeThumbnail");
 
 module.exports = {
-    getExercise: async (req, res) => {
+        getExercise: async (req, res) => {
         try {
             const limitNumber = 1
             let latest = await Exercise.find({}).sort({ _id: -1 }).limit(limitNumber)
@@ -14,6 +14,22 @@ module.exports = {
             }
 
             res.render('remind.ejs', { title: "Remind Exercise - Home", latest, user: req.user })
+        } catch (error) {
+            console.error(error);
+            res.render("error", { message: error.message });
+        }
+    },
+    getPost: async (req, res) => {
+        try {
+            const limitNumber = 1
+            let latest = await Exercise.find({}).sort({ _id: -1 }).limit(limitNumber)
+
+            if (latest.length > 0) {
+                const embedVideoUrl = latest[0].videoURL.replace("watch?v=", "embed/");
+                latest[0].videoURL = embedVideoUrl
+            }
+
+            res.render('post', { title: "Remind Exercise - Home", latest, user: req.user })
         } catch (error) {
             console.error(error);
             res.render("error", { message: error.message });

@@ -24,10 +24,10 @@
 			<div>
 				<p class="leading-loose text-slate-600"><%- exercise.description %>
 			</div>
-			<button id="markAsCompleteButton" class="py-4 text-lg text-white rounded-md bg-coral" data-id="<%= exercise._id %>">
+			<button id="markAsCompleteButton" class=" text-white bg-gray-800 hover:bg-coral-dark py-2 px-4 rounded-full shadow-button font-bold" data-id="<%= exercise._id %>">
 				<%- exercise.isComplete ? "<i class='fa-solid fa-circle-check'></i> Completed" : "<i class='fa-regular fa-circle-check'></i> Mark as completed" %>
 			</button>
-			<a href="/exercises/<%= exercise._id %>" class="py-4 text-lg text-center border rounded-md text-coral border-coral">
+			<a href="/exercises/<%= exercise._id %>" class=" text-center text-white bg-gray-800 hover:bg-coral-dark py-2 px-4 rounded-full shadow-button font-bold">
 				View Details
 			</a>
 			<% }) %>

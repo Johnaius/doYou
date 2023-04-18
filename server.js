@@ -69,7 +69,7 @@ app.use("/", mainRoutes);
 app.use("/post", postRoutes);
 app.use("/comment", commentRoutes);
 // app.use("/auth", authRoutes);
-app.use("/exerciseRoutes", exerciseRoutes);
+app.use("/remind", exerciseRoutes);
 
 //Server Running
 
