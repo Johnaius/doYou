@@ -29,7 +29,7 @@ module.exports = {
                 latest[0].videoURL = embedVideoUrl
             }
 
-            res.render('post', { title: "Remind Exercise - Home", latest, user: req.user })
+            res.render('posts', { title: "Remind Exercise - Home", latest, user: req.user })
         } catch (error) {
             console.error(error);
             res.render("error", { message: error.message });
