@@ -5,15 +5,21 @@ const User = require("../models/User");
 const Checkin = require('../models/Checkin');
 const Exercise = require("../models/Exercise");
 const moment = require('moment');
+const { generateExerciseVideoThumbnail } = require("../utils/generateYoutubeThumbnail");
 
 module.exports = {
   getProfile: async (req, res) => {
     let today = moment.utc().format('YYYY-MM-DD')
       const myCheckins = await Checkin.find({ createdById: req.user.id }).sort({ date: "desc" }).lean();
+      const limitNumber = 2;
       let latest = await Exercise.find({}).sort({ _id: -1 }).limit(limitNumber)
+      if (latest.length > 0) {
+        const embedVideoUrl = latest[0].videoURL.replace("watch?v=", "embed/");
+        latest[0].videoURL = embedVideoUrl
+    }
     try {
       const posts = await Post.find({ user: req.user.id });
-      res.render("profile.ejs", { posts: posts, user: req.user, checkin: myCheckins, user: req.user, moment:moment, today, latest  });
+      res.render("profile.ejs", { posts: posts, user: req.user, checkin: myCheckins, moment:moment, today, latest, embedVideoUrl  });
     } catch (err) {
       console.log(err);
     }

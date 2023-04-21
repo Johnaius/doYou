@@ -5,13 +5,14 @@ const { generateExerciseVideoThumbnail } = require("../utils/generateYoutubeThum
 module.exports = {
         getExercise: async (req, res) => {
         try {
-            const limitNumber = 1
+            const limitNumber = 1;
             let latest = await Exercise.find({}).sort({ _id: -1 }).limit(limitNumber)
 
             if (latest.length > 0) {
                 const embedVideoUrl = latest[0].videoURL.replace("watch?v=", "embed/");
                 latest[0].videoURL = embedVideoUrl
             }
+            
 
             res.render('remind.ejs', { title: "Remind Exercise - Home", latest, user: req.user })
         } catch (error) {
