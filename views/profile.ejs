@@ -214,16 +214,12 @@
     <section class="flex flex-col mt-6 space-y-6 lg:w-1/2">
         <div class="flex justify-between">
             <a href="/exercises/<%= exercise._id %>">  <h2 class="w-10/12 text-xl font-semibold"><%- exercise.title%></a></h2>
-            <button type="button" id="favoriteButton" class="bg-gray-200 rounded-full h-10 w-10 <%= exercise.isFavorite ? 'bg-coral/50' : '' %>" id="heart" aria-label="favorite" data-id="<%=exercise._id %>">
-                <i class="fa-heart <%= exercise.isFavorite ? 'fa-solid' : 'fa-regular' %>"></i>
-            </button>
+          
         </div>
         <div>
             <p class="leading-loose text-slate-600"><%- exercise.description %>
         </div>
-        <button id="markAsCompleteButton" class=" text-white bg-gray-800 hover:bg-coral-dark py-2 px-4 rounded-full shadow-button font-bold" data-id="<%= exercise._id %>">
-            <%- exercise.isComplete ? "<i class='fa-solid fa-circle-check'></i> Completed" : "<i class='fa-regular fa-circle-check'></i> Mark as completed" %>
-        </button>
+        <
         <a href="/exercises/<%= exercise._id %>" class=" text-center text-white bg-gray-800 hover:bg-coral-dark py-2 px-4 rounded-full shadow-button font-bold">
             View Details
         </a>
