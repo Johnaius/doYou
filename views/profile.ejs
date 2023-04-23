@@ -37,6 +37,55 @@
 
 <div class="divider bg-textbox m-0 "></div>
 <div class="divider bg-textbox m-0"></div>
+
+<section class=" bg-texture1 px-4 py-4 lg:flex lg:gap-6 lg:flex flex-cols col-10 mx-auto">
+    <div class="mb-10">
+        <a href="/profile">
+        <h1 class='text-2xl font-bold text-center pt-8'>Latest Meditations</h1>
+      </a>
+      <!-- <div class="flex justify-center mb-2"></div>
+      <a role="button" class=" buttonStyle text-center block text-l text-white font-bold bg-buttonBg w-[130px] py-1 shadow-button my-5 ml-20 mx-auto" href="/dashboard">Mood Tracker</a>
+    </div> -->
+    </div>
+    <div class="flex justify-center my-10">
+        <a role="button" class="btn mr-2 btn-sm text-white shadow-button" href="/exercises">Meditations</a>
+        <a role="button" class="btn mr-2 btn-sm text-white shadow-button" href="/add-exercise">Add Meditation</a>
+        <!-- <a role="button" class="btn mr-2 btn-sm text-white" href="/dashboard">Mood Tracker</a> -->
+      </div>
+    <section class="lg:w-1/2">
+        <% if(latest != "") {%>
+            <% latest.forEach(exercise => {%>
+                <a href="/exercises/<%= exercise._id %>">
+                    <iframe width="560"
+                    height="315"
+                    src="<%= exercise.videoURL %>"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    class="w-full shadow-lg rounded-2xl mt-14"
+            >
+            </iframe>
+                </a>
+    </section>
+    <section class="flex flex-col mt-6 space-y-6 lg:w-1/2">
+        <div class="flex justify-between">
+            <a href="/exercises/<%= exercise._id %>">  <h2 class="w-10/12 text-xl font-semibold"><%- exercise.title%></a></h2>
+          
+        </div>
+        <div>
+            <p class="leading-loose text-slate-600"><%- exercise.description %>
+        </div>
+        <
+        <a href="/exercises/<%= exercise._id %>" class=" text-center text-white bg-gray-800 hover:bg-coral-dark py-2 px-4 rounded-full shadow-button font-bold">
+            View Details
+        </a>
+        <% }) %>
+        <% } else { %>
+            <p>No items found.</p>
+        <% } %>
+    </section>
+</section>
 <section class="bg-texture1 pb-5 ">
 <section class="w-[294px]  mx-auto mb-3 bg-texture1">
      <div class="mb-10">
@@ -181,54 +230,7 @@
 </section>
 </section>
 
-<section class=" bg-textbox px-4 py-4 lg:flex lg:gap-6 lg:flex flex-cols col-10 mx-auto">
-    <div class="mb-10">
-        <a href="/profile">
-        <h1 class='text-2xl font-bold text-center pt-8'>Latest Meditations</h1>
-      </a>
-      <!-- <div class="flex justify-center mb-2"></div>
-      <a role="button" class=" buttonStyle text-center block text-l text-white font-bold bg-buttonBg w-[130px] py-1 shadow-button my-5 ml-20 mx-auto" href="/dashboard">Mood Tracker</a>
-    </div> -->
-    </div>
-    <div class="flex justify-center my-10">
-        <a role="button" class="btn mr-2 btn-sm text-white shadow-button" href="/exercises">Meditations</a>
-        <a role="button" class="btn mr-2 btn-sm text-white shadow-button" href="/add-exercise">Add Meditation</a>
-        <!-- <a role="button" class="btn mr-2 btn-sm text-white" href="/dashboard">Mood Tracker</a> -->
-      </div>
-    <section class="lg:w-1/2">
-        <% if(latest != "") {%>
-            <% latest.forEach(exercise => {%>
-                <a href="/exercises/<%= exercise._id %>">
-                    <iframe width="560"
-                    height="315"
-                    src="<%= exercise.videoURL %>"
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                    class="w-full shadow-lg rounded-2xl mt-14"
-            >
-            </iframe>
-                </a>
-    </section>
-    <section class="flex flex-col mt-6 space-y-6 lg:w-1/2">
-        <div class="flex justify-between">
-            <a href="/exercises/<%= exercise._id %>">  <h2 class="w-10/12 text-xl font-semibold"><%- exercise.title%></a></h2>
-          
-        </div>
-        <div>
-            <p class="leading-loose text-slate-600"><%- exercise.description %>
-        </div>
-        <
-        <a href="/exercises/<%= exercise._id %>" class=" text-center text-white bg-gray-800 hover:bg-coral-dark py-2 px-4 rounded-full shadow-button font-bold">
-            View Details
-        </a>
-        <% }) %>
-        <% } else { %>
-            <p>No items found.</p>
-        <% } %>
-    </section>
-</section>
+
 <script>       $(document).ready(function(){
     $('#post-carousel').slick({
       slidesToShow: 3,
